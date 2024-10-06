@@ -1,8 +1,7 @@
-version: "3.9"
-
 services:
+
   app:
-    image: docker.n8n.io/n8nio/n8n:1.44.1
+    image: docker.n8n.io/n8nio/n8n:1.61.0
     restart: always
     environment:
       - N8N_PORT=5678
