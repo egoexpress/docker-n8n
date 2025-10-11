@@ -7,13 +7,22 @@ services:
       - N8N_PORT=5678
       - N8N_PROTOCOL=https
       - NODE_ENV=production
+      - N8N_HOST=${N8N_HOST}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+      - VIRTUAL_HOST=${VIRTUAL_HOST}
+      - VIRTUAL_PORT=5678
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST}
+      - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
+
     volumes:
       - data:/home/node/.n8n
     networks:
-      - frontend
+      frontend:
 
 volumes:
   data:
 
 networks:
   frontend:
+    name: proxy_frontend
+    external: true
